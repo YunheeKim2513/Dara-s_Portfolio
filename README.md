@@ -7,3 +7,4 @@ NextJS 기반 포트폴리오 사이트
 - Next15 버전
 - SSG
 - Node 18.17 이상
+- Vercel 호이스팅
