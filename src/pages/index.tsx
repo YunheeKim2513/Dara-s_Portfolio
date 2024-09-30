@@ -1,1 +1,5 @@
 // 어플리케이션의 페이지, 전체 페이지나 큰 페이지 부분을 포함.
+
+export default function Home() {
+  return <div></div>;
+}
