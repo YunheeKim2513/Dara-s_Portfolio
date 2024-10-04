@@ -32,6 +32,16 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts", ".scss", ".css"],
+        "paths": ["./src"]
+      },
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
     }
   }
 }
