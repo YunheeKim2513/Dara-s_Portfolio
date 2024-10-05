@@ -1,4 +1,5 @@
-const RootPage = () => {
-  return <div>RootPage</div>;
-};
-export default RootPage;
+import MainPage from '@/pages/main/main-page';
+
+export default function RootPage() {
+  return <MainPage />;
+}
