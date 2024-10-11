@@ -1,4 +1,5 @@
 import { CommonHeader } from '@/widgets/header';
+import { CommonFooter } from '@/widgets/footer';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <CommonHeader />
         {children}
+        <CommonFooter />
       </body>
     </html>
   );
