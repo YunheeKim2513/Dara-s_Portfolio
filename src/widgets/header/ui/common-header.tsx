@@ -1,3 +1,3 @@
 export const CommonHeader = () => {
-  return <div>CommonHeader</div>;
+  return <header>CommonHeader</header>;
 };
