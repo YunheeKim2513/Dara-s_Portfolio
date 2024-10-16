@@ -15,6 +15,27 @@ export const headerStyle = style({
 });
 
 export const logoStyle = style({
+  display: 'flex',
+  alignItems: 'center',
   fontSize: '1.5rem',
   fontWeight: 'bold',
+});
+
+export const logoImageStyle = style({
+  marginRight: '10px',
+});
+
+export const menuButtonStyle = style({
+  display: 'none',
+  background: 'none',
+  border: 'none',
+  color: '#fff',
+  fontSize: '1.5rem',
+  cursor: 'pointer',
+
+  '@media': {
+    'screen and (max-width: 768px)': {
+      display: 'block',
+    },
+  },
 });

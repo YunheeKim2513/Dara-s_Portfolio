@@ -27,8 +27,9 @@
   "plugins": ["prettier", "@typescript-eslint", "react", "react-hooks"],
   "rules": {
     "prettier/prettier": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": "warn"
+    "react/no-unescaped-entities": "off"
   },
   "settings": {
     "react": {
