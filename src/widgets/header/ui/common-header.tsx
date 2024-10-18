@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import * as styles from './common-header.css';
 
@@ -31,6 +32,15 @@ export const CommonHeader = () => {
       >
         {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
+      <nav className={`${styles.navStyle} ${menuOpen ? styles.navOpenStyle : ''}`} id="navigation">
+        <ul className={styles.navListStyle}>
+          {['/'].map((path, index) => (
+            <li key={index} className={styles.navItemStyle}>
+              <Link href={path}></Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 };

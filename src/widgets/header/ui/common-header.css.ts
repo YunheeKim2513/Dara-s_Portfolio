@@ -39,3 +39,42 @@ export const menuButtonStyle = style({
     },
   },
 });
+
+export const navStyle = style({
+  display: 'flex',
+  gap: '20px',
+
+  '@media': {
+    'screen and (max-width: 768px)': {
+      display: 'none',
+      flexDirection: 'column',
+      position: 'absolute',
+      top: '100%',
+      left: 0,
+      width: '100%',
+      backgroundColor: '#444',
+      padding: '20px',
+    },
+  },
+});
+
+export const navOpenStyle = style({
+  '@media': {
+    'screen and (max-width: 768px)': {
+      display: 'flex',
+    },
+  },
+});
+
+export const navListStyle = style({
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  display: 'flex',
+  flexDirection: 'inherit',
+  gap: 'inherit',
+});
+
+export const navItemStyle = style({
+  margin: 0,
+});
