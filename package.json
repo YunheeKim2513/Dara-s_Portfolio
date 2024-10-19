@@ -13,8 +13,7 @@
   "packageManager": "pnpm@9.11.0",
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --ext .tsx --ext .ts src/",
-      "prettier --write"
+      "eslint --ext .tsx --ext .ts src/"
     ]
   },
   "dependencies": {

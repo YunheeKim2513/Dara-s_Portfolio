@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { FaBars, FaTimes } from "react-icons/fa";
-import * as styles from "./common-header.css";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import * as styles from './common-header.css';
 
 export const CommonHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,14 +33,14 @@ export const CommonHeader = () => {
         {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
       <nav
-        className={`${styles.navStyle} ${menuOpen ? styles.navOpenStyle : ""}`}
+        className={`${styles.navStyle} ${menuOpen ? styles.navOpenStyle : ''}`}
         id="navigation"
       >
         <ul className={styles.navListStyle}>
-          {["/", "/project"].map((path, index) => (
+          {['/', '/project'].map((path, index) => (
             <li key={index} className={styles.navItemStyle}>
               <Link href={path} className={styles.linkStyle}>
-                {path === "/" ? "ABOUT ME" : path.substring(1).toUpperCase()}
+                {path === '/' ? 'ABOUT ME' : path.substring(1).toUpperCase()}
               </Link>
             </li>
           ))}
