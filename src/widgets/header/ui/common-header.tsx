@@ -34,9 +34,9 @@ export const CommonHeader = () => {
       </button>
       <nav className={`${styles.navStyle} ${menuOpen ? styles.navOpenStyle : ''}`} id="navigation">
         <ul className={styles.navListStyle}>
-          {['/'].map((path, index) => (
+          {['/', '/project'].map((path, index) => (
             <li key={index} className={styles.navItemStyle}>
-              <Link href={path}></Link>
+              <Link href={path}>{path === '/' ? 'ABOUT ME' : path.substring(1).toUpperCase()}</Link>
             </li>
           ))}
         </ul>

@@ -38,7 +38,16 @@
     "import/resolver": {
       "node": {
         "moduleDirectory": ["node_modules"],
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts", ".scss", ".css", ".mjs"],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx",
+          ".d.ts",
+          ".scss",
+          ".css",
+          ".mjs"
+        ],
         "paths": ["./src"]
       },
       "typescript": {
