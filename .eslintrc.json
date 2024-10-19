@@ -26,9 +26,19 @@
   },
   "plugins": ["prettier", "@typescript-eslint", "react", "react-hooks"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "semi": true,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "tabWidth": 2,
+      "printWidth": 80,
+      "arrowParens": "always",
+      "endOfLine": "lf",
+      "embeddedLanguageFormatting":"auto"
+    }],
+    "@typescript-eslint/no-unused-vars": "warn",
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": "warn"
+    "react/no-unescaped-entities": "off"
   },
   "settings": {
     "react": {
