@@ -26,7 +26,16 @@
   },
   "plugins": ["prettier", "@typescript-eslint", "react", "react-hooks"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "semi": true,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "tabWidth": 2,
+      "printWidth": 80,
+      "arrowParens": "always",
+      "endOfLine": "lf",
+      "embeddedLanguageFormatting":"auto"
+    }],
     "@typescript-eslint/no-unused-vars": "warn",
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off"
@@ -38,16 +47,7 @@
     "import/resolver": {
       "node": {
         "moduleDirectory": ["node_modules"],
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx",
-          ".d.ts",
-          ".scss",
-          ".css",
-          ".mjs"
-        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts", ".scss", ".css", ".mjs"],
         "paths": ["./src"]
       },
       "typescript": {
