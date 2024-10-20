@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import * as styles from './common-header.css';
+import * as headerStyles from './common-header.css';
 
 export const CommonHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,19 +12,19 @@ export const CommonHeader = () => {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
-    <header className={styles.headerStyle}>
-      <div className={styles.logoStyle} aria-level={1}>
+    <header className={headerStyles.headerStyle}>
+      <div className={headerStyles.logoStyle} aria-level={1}>
         <Image
           src="/images/header_logo.jpg"
           alt="Logo"
-          className={styles.logoImageStyle}
+          className={headerStyles.logoImageStyle}
           width={40}
           height={40}
         />
         Dara's Portfolio
       </div>
       <button
-        className={styles.menuButtonStyle}
+        className={headerStyles.menuButtonStyle}
         onClick={toggleMenu}
         aria-label="Toggle menu"
         aria-expanded={menuOpen}
@@ -33,13 +33,13 @@ export const CommonHeader = () => {
         {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
       <nav
-        className={`${styles.navStyle} ${menuOpen ? styles.navOpenStyle : ''}`}
+        className={`${headerStyles.navStyle} ${menuOpen ? headerStyles.navOpenStyle : ''}`}
         id="navigation"
       >
-        <ul className={styles.navListStyle}>
+        <ul className={headerStyles.navListStyle}>
           {['/', '/project'].map((path, index) => (
-            <li key={index} className={styles.navItemStyle}>
-              <Link href={path} className={styles.linkStyle}>
+            <li key={index} className={headerStyles.navItemStyle}>
+              <Link href={path} className={headerStyles.linkStyle}>
                 {path === '/' ? 'ABOUT ME' : path.substring(1).toUpperCase()}
               </Link>
             </li>
