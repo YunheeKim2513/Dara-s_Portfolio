@@ -10,8 +10,3 @@ export const footerStyle = style({
   bottom: 0,
   left: 0,
 });
-
-export const footerContentStyle = style({
-  maxWidth: '800px',
-  margin: '0 auto',
-});
