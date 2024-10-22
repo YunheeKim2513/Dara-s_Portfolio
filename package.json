@@ -12,8 +12,8 @@
   "license": "MIT",
   "packageManager": "pnpm@9.11.0",
   "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx}": [
-      "eslint --ext .tsx --ext .ts src/ pages/"
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --ext .tsx --ext .ts src/"
     ]
   },
   "dependencies": {
