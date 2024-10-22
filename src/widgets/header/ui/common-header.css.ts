@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import * as commonStyles from '@/shared/ui/common.css';
 
 export const headerStyle = style({
   display: 'flex',
@@ -11,7 +12,6 @@ export const headerStyle = style({
   width: '100%',
   top: 0,
   left: 0,
-  zIndex: 100,
 });
 
 export const logoStyle = style({
@@ -34,8 +34,8 @@ export const menuButtonStyle = style({
   cursor: 'pointer',
 
   '@media': {
-    'screen and (max-width: 768px)': {
-      display: 'block',
+    [commonStyles.breakpoints.mobile]: {
+      display: 'flex',
     },
   },
 });
@@ -47,7 +47,7 @@ export const navStyle = style({
   flexGrow: 1,
 
   '@media': {
-    'screen and (max-width: 768px)': {
+    [commonStyles.breakpoints.mobile]: {
       display: 'none',
       flexDirection: 'column',
       position: 'absolute',
@@ -62,7 +62,7 @@ export const navStyle = style({
 
 export const navOpenStyle = style({
   '@media': {
-    'screen and (max-width: 768px)': {
+    [commonStyles.breakpoints.mobile]: {
       display: 'flex',
     },
   },

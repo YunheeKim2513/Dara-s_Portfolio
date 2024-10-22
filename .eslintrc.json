@@ -48,7 +48,7 @@
       "node": {
         "moduleDirectory": ["node_modules"],
         "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts", ".scss", ".css", ".mjs"],
-        "paths": ["./src"]
+        "paths": ["./"]
       },
       "typescript": {
         "project": "./tsconfig.json"
