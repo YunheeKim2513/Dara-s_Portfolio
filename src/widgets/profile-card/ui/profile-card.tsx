@@ -1,3 +1,20 @@
+import Image from 'next/image';
+import * as profileCardStyles from './profile-card.css';
+
 export const ProfileCard = () => {
-  return <>ProfileCard</>;
+  return (
+    <section className={profileCardStyles.profileCardSection}>
+      <div className={profileCardStyles.profileCardContainer}>
+        <div className={profileCardStyles.profileCardImageWrapper}>
+          <Image
+            src="/images/header_logo.jpg"
+            alt="Profile Picture"
+            width={200}
+            height={200}
+            style={{ borderRadius: '50%' }}
+          />
+        </div>
+      </div>
+    </section>
+  );
 };
