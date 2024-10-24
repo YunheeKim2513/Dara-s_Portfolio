@@ -12,9 +12,9 @@ export const profileCardSection = style({
 
 export const profileCardContainer = style({
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  textAlign: 'center',
+  flexDirection: 'row',
+  textAlign: 'left',
+  alignItems: 'flex-start',
   maxWidth: '800px',
   padding: '2rem',
   border: '1px solid #eaeaea',
@@ -22,20 +22,38 @@ export const profileCardContainer = style({
 
   '@media': {
     [commonStyles.breakpoints.mobile]: {
-      flexDirection: 'row',
-      textAlign: 'left',
+      flexDirection: 'column',
+      textAlign: 'center',
+      alignItems: 'center',
     },
   },
 });
 
 export const profileCardImageWrapper = style({
-  flexShrink: 0,
-  marginBottom: '1rem',
+  marginRight: '2rem',
+  marginBottom: 0,
 
   '@media': {
     [commonStyles.breakpoints.mobile]: {
-      marginRight: '2rem',
-      marginBottom: 0,
+      flexShrink: 0,
+      marginBottom: '1rem',
     },
   },
+});
+
+export const profileCardContent = style({
+  textAlign: 'left',
+  width: '100%',
+});
+
+export const profileCardName = style({
+  fontSize: '2rem',
+  fontWeight: 'bold',
+  marginBottom: '0.5rem',
+});
+
+export const profileCardTitle = style({
+  color: '#0070f3',
+  fontSize: '1.25rem',
+  marginBottom: '1rem',
 });
