@@ -1,7 +1,12 @@
 import Image from 'next/image';
+import { AboutData } from '../types';
 import * as profileCardStyles from './profile-card.css';
 
-export const ProfileCard = () => {
+interface ProfileCardProps {
+  aboutData: AboutData;
+}
+
+export const ProfileCard = ({ aboutData }: ProfileCardProps) => {
   return (
     <section className={profileCardStyles.profileCardSection}>
       <div className={profileCardStyles.profileCardContainer}>
@@ -15,9 +20,11 @@ export const ProfileCard = () => {
           />
         </div>
         <div className={profileCardStyles.profileCardContent}>
-          <h2 className={profileCardStyles.profileCardName}>Dara</h2>
+          <h2 className={profileCardStyles.profileCardName}>
+            {aboutData.name}
+          </h2>
           <h4 className={profileCardStyles.profileCardTitle}>
-            Front-End Engineer
+            {aboutData.title}
           </h4>
         </div>
       </div>
