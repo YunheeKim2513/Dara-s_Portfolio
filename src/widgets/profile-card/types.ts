@@ -1,6 +1,5 @@
-export interface AboutData {
+export interface AboutMeData {
   name: string;
   title: string;
-  description: string;
   details: string[];
 }

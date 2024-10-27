@@ -47,13 +47,29 @@ export const profileCardContent = style({
 });
 
 export const profileCardName = style({
-  fontSize: '2rem',
+  fontSize: '2.75rem',
   fontWeight: 'bold',
   marginBottom: '0.5rem',
 });
 
 export const profileCardTitle = style({
-  color: '#0070f3',
-  fontSize: '1.25rem',
+  color: '#8892a0',
+  fontSize: '1.4rem',
+  fontWeight: '400',
   marginBottom: '1rem',
+});
+
+export const profileCardDetails = style({
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+  fontSize: '1.4rem',
+  fontWeight: '400',
+  color: '#333', // 텍스트의 기본 색상
+  lineHeight: '1.6', // 읽기 쉽게 하기 위한 줄 간격
+  '@media': {
+    [commonStyles.breakpoints.mobile]: {
+      fontSize: '1.1rem', // 데스크탑 환경에서 더 크게 보여줌
+    },
+  },
 });

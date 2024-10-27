@@ -1,12 +1,18 @@
 import Image from 'next/image';
-import { AboutData } from '../types';
+import { AboutMeData } from '../types';
 import * as profileCardStyles from './profile-card.css';
 
-interface ProfileCardProps {
-  aboutData: AboutData;
-}
+const getAboutData = async (): Promise<AboutMeData> => {
+  return {
+    name: 'Dara',
+    title: 'Front-End Engineer',
+    details: ['소프트웨어학과 공학사', 'Front-End 8년 차'],
+  };
+};
 
-export const ProfileCard = ({ aboutData }: ProfileCardProps) => {
+export const ProfileCard = async () => {
+  const { name, title, details } = await getAboutData();
+
   return (
     <section className={profileCardStyles.profileCardSection}>
       <div className={profileCardStyles.profileCardContainer}>
@@ -20,12 +26,13 @@ export const ProfileCard = ({ aboutData }: ProfileCardProps) => {
           />
         </div>
         <div className={profileCardStyles.profileCardContent}>
-          <h2 className={profileCardStyles.profileCardName}>
-            {aboutData.name}
-          </h2>
-          <h4 className={profileCardStyles.profileCardTitle}>
-            {aboutData.title}
-          </h4>
+          <h1 className={profileCardStyles.profileCardName}>{name}</h1>
+          <h3 className={profileCardStyles.profileCardTitle}>{title}</h3>
+          <ul className={profileCardStyles.profileCardDetails}>
+            {details.map((details, index) => (
+              <li key={`${index}_${details}`}>- {details}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
