@@ -21,12 +21,6 @@ export const linkButton = style({
   },
 });
 
-export const buttonContainer = style({
-  display: 'flex',
-  gap: '1rem',
-  flexWrap: 'wrap',
-});
-
 export const baseButton = style({
   backgroundColor: '#1877F2',
   ':hover': {
