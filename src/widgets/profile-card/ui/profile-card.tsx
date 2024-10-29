@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import { ButtonLinks } from '@/features/button-links';
+import { ButtonLinks, ButtonLinksStyles } from '@/features/button-links';
 import { AboutMeData } from '../types';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import * as profileCardStyles from './profile-card.css';
 
 const getAboutData = async (): Promise<AboutMeData> => {
@@ -40,7 +41,28 @@ export const ProfileCard = async () => {
             ))}
           </ul>
           <br />
-          <ButtonLinks shareLinks={shareLinks} />
+          <div className={profileCardStyles.buttonContainer}>
+            {Object.keys(shareLinks).map((key, index) => {
+              console.log(index);
+              const ButtonIcon =
+                key === 'Linkedin' ? <FaLinkedin /> : <FaGithub />;
+              const buttonClassName =
+                key === 'Linkedin'
+                  ? ButtonLinksStyles.baseButton
+                  : ButtonLinksStyles.githubButton;
+
+              return (
+                <ButtonLinks
+                  key={`${index}_${key}`}
+                  className={buttonClassName}
+                  linkURL={shareLinks[key]}
+                >
+                  {ButtonIcon}
+                  {key}
+                </ButtonLinks>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
