@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ButtonLinks, ButtonLinksStyles } from '@/features/button-links';
+import { ButtonLinks, ButtonLinksStyles } from '@/entities/button-link';
 import { AboutMeData } from '../types';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import * as profileCardStyles from './profile-card.css';
@@ -43,7 +43,6 @@ export const ProfileCard = async () => {
           <br />
           <div className={profileCardStyles.buttonContainer}>
             {Object.keys(shareLinks).map((key, index) => {
-              console.log(index);
               const ButtonIcon =
                 key === 'Linkedin' ? <FaLinkedin /> : <FaGithub />;
               const buttonClassName =
