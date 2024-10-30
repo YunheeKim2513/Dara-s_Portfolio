@@ -73,3 +73,9 @@ export const profileCardDetails = style({
     },
   },
 });
+
+export const buttonContainer = style({
+  display: 'flex',
+  gap: '1rem',
+  flexWrap: 'wrap',
+});
