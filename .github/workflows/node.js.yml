@@ -1,0 +1,55 @@
+# 해당 workflow의 이름을 정의 합니다. 
+name: Node.js 기반 Nextjs & 도커 & AWS 
+
+# 'Events'로 'develop-main'에서 pull request가 발생하면 수행합니다.
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      targetStage:
+        description: "배포 환경"
+        type: choice
+        default: main
+        required: true
+        options: [main]
+    
+# Jobs가 수행됩니다.
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        
+# 소스를 체크아웃 받습니다.
+    steps:
+    - name: Checkout source code 
+      uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install pnpm
+      run: npm install -g pnpm
+      
+    - uses: actions/cache@v4
+      id: cache
+      with:
+        path: |
+          node_modules
+          .pnpm-store
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile --prod
+      
+    - name: Build
+      run: pnpm build
