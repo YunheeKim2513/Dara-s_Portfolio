@@ -21,8 +21,7 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [^20.x]
         
 # 소스를 체크아웃 받습니다.
     steps:
