@@ -18,23 +18,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
         
 # 소스를 체크아웃 받습니다.
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Use pnpm/action-setup
+        uses: pnpm/action-setup@v2
         with:
-          node-version: ">=18"
-          cache: "pnpm"
-          
-      - name: Install pnpm
-        run: |
-          npm install -g pnpm@9.11.0
-          echo "::add-path::$(npm bin -g)" # 경로를 GitHub Actions에 추가
+          version: 9.11.0     # 원하는 버전
+          run_install: false # 'pnpm install'를 자동 실행하지 않고 직접 컨트롤하고 싶으면 false
 
       - name: Verify pnpm installation
         run: pnpm --version
