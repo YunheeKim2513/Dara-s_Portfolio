@@ -32,7 +32,9 @@ jobs:
           cache: "pnpm"
           
       - name: Install pnpm
-        run: npm install -g pnpm@9.11.0
+        run: |
+          npm install -g pnpm@9.11.0
+          echo "::add-path::$(npm bin -g)" # 경로를 GitHub Actions에 추가
 
       - name: Verify pnpm installation
         run: pnpm --version
@@ -41,7 +43,6 @@ jobs:
         id: cache
         with:
           path: |
-            node_modules
             .pnpm-store
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
