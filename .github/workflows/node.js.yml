@@ -1,0 +1,49 @@
+# 해당 workflow의 이름을 정의 합니다. 
+name: Node.js 기반 Nextjs & 도커 & AWS 
+
+# 'Events'로 'develop-main'에서 pull request가 발생하면 수행합니다.
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      targetStage:
+        description: "배포 환경"
+        type: choice
+        default: main
+        required: true
+        options: [main]
+    
+# Jobs가 수행됩니다.
+jobs:
+  build:
+    runs-on: ubuntu-latest
+        
+# 소스를 체크아웃 받습니다.
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Use pnpm/action-setup
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.11.0     # 원하는 버전
+          run_install: false # 'pnpm install'를 자동 실행하지 않고 직접 컨트롤하고 싶으면 false
+
+      - name: Verify pnpm installation
+        run: pnpm --version
+        
+      - uses: actions/cache@v4
+        id: cache
+        with:
+          path: |
+            .pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        
+      - name: Build
+        run: pnpm vercel-deploy
