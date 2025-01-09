@@ -23,7 +23,7 @@ jobs:
 # 소스를 체크아웃 받습니다.
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,10 +31,8 @@ jobs:
           node-version: ">=18"
           cache: "pnpm"
           
-      - name: Enable and install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@9.11.0 --activate
+      - name: Install pnpm
+        run: npm install -g pnpm@9.11.0
 
       - name: Verify pnpm installation
         run: pnpm --version
